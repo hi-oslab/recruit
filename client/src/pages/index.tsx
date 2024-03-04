@@ -31,9 +31,9 @@ export default function Page(props) {
         <h3 className='h-fit leading-none text-2xl '>2024-1 RECRUIT</h3>
       </div>
 
-      <div className='fixed bottom-0 left-0 z-20 '>
+      {/* <div className='fixed bottom-0 left-0 z-20 '>
         <span>활동내용</span>
-      </div>
+      </div> */}
 
       <div className='fixed z-0 w-full h-screen pointer-events-none'>
         <Scene>
@@ -44,15 +44,7 @@ export default function Page(props) {
           {/* 
           //@ts-ignore */}
           <Model position={[0, -1, 0]} scale={0.6} />
-          <ContactShadows
-            rotation-x={Math.PI / 2}
-            position={[0, -1.5, 0]}
-            opacity={0.5}
-            width={10}
-            height={10}
-            blur={1}
-            far={1}
-          />
+
           <OrbitControls
             ref={ref}
             enablePan={true}
