@@ -4,6 +4,12 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        main: '#0F74A8',
+      },
+      fontFamily: {
+        orbit: ['Orbit', 'sans-serif'],
+      },
       gridTemplateColumns: {
         'auto-1fr': 'auto 1fr',
       },

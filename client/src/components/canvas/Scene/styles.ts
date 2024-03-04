@@ -10,7 +10,6 @@ export const SpinnerCover = styled.div`
   flex
   justify-center
   items-center
-  bg-black
   `}
 `
 
