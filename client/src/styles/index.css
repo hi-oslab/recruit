@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* 폰트 임포트 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 
 /* 커스텀 스타일 */
@@ -28,6 +29,9 @@
     background-image: url('/img/bg-image.png');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Nanum Gothic',
+      sans-serif;
+
   }
 
 }
