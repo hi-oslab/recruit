@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { TfiAngleDown, TfiAngleUp } from 'react-icons/tfi'
-import { MotionDiv } from '@/styles/common.styles'
+import { MotionDiv, ScrollDiv } from '@/styles/common.styles'
 
 export default function Page(props) {
   const router = useRouter()
@@ -32,7 +32,9 @@ export default function Page(props) {
         <Image src='/img/poster_title.svg' alt='logo' width={1080} height={1080} />
       </div>
 
-      <div
+      {/* <ScrollDiv
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
         onClick={() => {
           setIsInfoOpened(!isInfoOpened)
         }}
@@ -50,7 +52,7 @@ export default function Page(props) {
           <p>모집 대상: 프론트엔드 개발자</p>
           <p>모집 방법: 이력서 및 포트폴리오 제출</p>
         </div>
-      </div>
+      </ScrollDiv> */}
 
       <div className='fixed z-0 w-full h-screen pointer-events-none'>
         <Scene>

@@ -10,6 +10,11 @@ export const MotionDiv = styled(motion.div).attrs({
   transition: { duration: 0.3 },
 })``
 
+export const ScrollDiv = styled(motion.div).attrs({
+  layout: true,
+  transition: { duration: 0.3 },
+})``
+
 export const MotionText = styled(motion.span).attrs({
   layout: true,
   transition: { duration: 0.3 },
