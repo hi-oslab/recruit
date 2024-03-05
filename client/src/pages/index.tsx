@@ -62,6 +62,8 @@ export default function Page(props) {
           {/* 
           //@ts-ignore */}
           {/* <Model position={[0, -1, 0]} scale={0.6} /> */}
+          {/* 
+          //@ts-ignore */}
           <Sphere args={[1, 32, 32]} position={[0, 0, 0]}>
             <meshStandardMaterial color='white' />
           </Sphere>
