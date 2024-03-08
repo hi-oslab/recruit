@@ -31,6 +31,9 @@ export default function Page(props) {
       <div className='fixed top-6 left-1/2 -translate-x-1/2 z-20 flex flex-col gap-2 text-white text-center w-full p-4'>
         <Image src='/img/poster_title.svg' alt='logo' width={1080} height={1080} />
       </div>
+      <div className='fixed bottom-0 left-0 -rotate-90 text-white origin-top-left z-10 w-fit h-fit pointer-events-none'>
+        2024.03.11 - 2024.03.15
+      </div>
 
       <button
         onClick={() => {
@@ -54,7 +57,9 @@ export default function Page(props) {
           <span className='-ml-1'>{isInfoOpened ? <AiOutlineDown /> : <AiOutlineUp />}</span>
           <p>{!isInfoOpened ? '모집 관련 설명 보기' : '내리기'}</p>
         </div>
-        <motion.div animate={isInfoOpened ? { height: 'fit-content' } : { height: 0 }}>
+        <motion.div
+          animate={isInfoOpened ? { height: 'fit-content' } : { height: 0 }}
+          transition={{ ease: 'easeInOut', duration: 1 }}>
           <div className='p-4 flex flex-col gap-4 w-full h-full overflow-y-scroll bg-white'>
             <InfoContainer
               title='활동내용'
