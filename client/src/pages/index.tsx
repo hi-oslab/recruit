@@ -97,7 +97,7 @@ export default function Page(props) {
 
       <div className='fixed z-0 w-full h-screen pointer-events-none '>
         <Scene>
-          <Perf position='bottom-right' />
+          {/* <Perf position='bottom-right' /> */}
           <ambientLight intensity={1} />
           <directionalLight position={[0, 0, 5]} intensity={0.7} />
           <spotLight position={[50, 50, -30]} castShadow />
