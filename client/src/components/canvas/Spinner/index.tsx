@@ -4,7 +4,7 @@ export function Spinner(props) {
   return (
     <>
       <div className='w-fit h-fit flex flex-col justify-center items-center'>
-        <div className='mt-4 w-[120px] h-[10px] border-2 border-white flex justify-start items-center'>
+        <div className='mt-4 w-[120px] h-[10px] border border-white flex justify-start items-center'>
           <div
             className=' h-[100%] bg-white transition-all duration-500'
             style={{

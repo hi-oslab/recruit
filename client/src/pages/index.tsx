@@ -1,11 +1,21 @@
-import { Model } from '@/components/canvas/Model'
+import { Foot, Model } from '@/components/canvas/Model/foot'
 import Scene, { Common } from '@/components/canvas/Scene'
-import { OrbitControls, Box, Sphere } from '@react-three/drei'
+import { OrbitControls, Box, Sphere, Stage, Float } from '@react-three/drei'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { AiOutlineDown, AiOutlineHome, AiOutlineUp } from 'react-icons/ai'
 import { motion } from 'framer-motion'
+import { Arm } from '@/components/canvas/Model/arm'
+import { Chest } from '@/components/canvas/Model/chest'
+import { Hand } from '@/components/canvas/Model/hand'
+import { Perf } from 'r3f-perf'
+import { Shoulder } from '@/components/canvas/Model/shoulder'
+import { Head } from '@/components/canvas/Model/head'
+import { Leg } from '@/components/canvas/Model/leg'
+import { Neck } from '@/components/canvas/Model/neck'
+import { Wheel } from '@/components/canvas/Model/wheel'
+import { Curves } from '@/components/canvas/Model/curves'
 
 export default function Page(props) {
   const router = useRouter()
@@ -44,7 +54,14 @@ export default function Page(props) {
         }>
         <button
           onClick={() => {
-            alert('지원 기간이 아닙니다.')
+            //after 2024.03.11
+            if (new Date().getTime() < new Date('2024-03-11').getTime()) {
+              alert('지원 기간이 아닙니다.\n 2024년 3월 11일부터 지원해주세요!')
+            } else {
+              window.open(
+                'https://docs.google.com/forms/d/e/1FAIpQLSfLK2_O67UjSOlHz2kcY0C_W6SQToX28olenrphty55Bb2qLw/viewform?usp=sf_link',
+              )
+            }
           }}
           className='mb-6 relative w-48 md:w-72'>
           <span className='border border-white bg-main text-white text-center  w-full md:hover:bg-white md:hover:text-main active:bg-white active:text-main px-3 py-1.5 flex flex-row justify-center items-center gap-1 text-md md:text-lg active:translate-y-1 md:hover:translate-y-1 '>
@@ -80,6 +97,7 @@ export default function Page(props) {
 
       <div className='fixed z-0 w-full h-screen pointer-events-none '>
         <Scene>
+          <Perf position='bottom-right' />
           <ambientLight intensity={1} />
           <directionalLight position={[0, 0, 5]} intensity={0.7} />
           <spotLight position={[50, 50, -30]} castShadow />
@@ -87,18 +105,29 @@ export default function Page(props) {
           <pointLight position={[10, 10, 10]} intensity={0.5} />
           {/* 
           //@ts-ignore */}
-          {/* <Model position={[0, -1, 0]} scale={0.6} /> */}
-          {/* 
-          //@ts-ignore */}
-          <Sphere scale={[1, 1, 1]} position={[0, 0, 0]}>
-            <meshStandardMaterial metalness={0.7} roughness={0.1} attach='material' color='white' />
-          </Sphere>
+          <Float
+            speed={5} // Animation speed, defaults to 1
+            rotationIntensity={1} // XYZ rotation intensity, defaults to 1
+            floatIntensity={0.5} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+            floatingRange={[-1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+          >
+            <Arm scale={0.5} />
+            <Chest scale={0.5} />
+            {/* <Foot scale={0.5} /> */}
+            {/* <Hand scale={0.5} /> */}
+            <Shoulder scale={0.5} />
+            <Head scale={0.5} />
+            <Leg scale={0.5} />
+            <Neck scale={0.5} />
+            {/* <Wheel scale={0.5} /> */}
+            <Curves scale={0.5} />
+          </Float>
           <OrbitControls
             autoRotate={true}
-            autoRotateSpeed={5}
+            autoRotateSpeed={1}
             ref={ref}
             enableDamping={true}
-            enablePan={true}
+            enablePan={false}
             enableZoom={true}
             enableRotate={true}
             minDistance={0}
