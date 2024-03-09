@@ -106,10 +106,10 @@ export default function Page(props) {
           {/* 
           //@ts-ignore */}
           <Float
-            speed={5} // Animation speed, defaults to 1
-            rotationIntensity={1} // XYZ rotation intensity, defaults to 1
-            floatIntensity={0.5} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-            floatingRange={[-1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+            speed={1} // Animation speed, defaults to 1
+            rotationIntensity={0.3} // XYZ rotation intensity, defaults to 1
+            floatIntensity={0.3} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+            floatingRange={[-1, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
           >
             <Arm scale={0.5} />
             <Chest scale={0.5} />
