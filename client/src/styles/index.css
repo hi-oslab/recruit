@@ -5,6 +5,13 @@
 /* 폰트 임포트 */
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+@font-face {
+  font-family: 'orbit';
+  src: url('/data/Orbitron-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* 커스텀 스타일 */
 
@@ -30,7 +37,6 @@
     background-size: cover;
     font-family: 'Nanum Gothic',
       sans-serif;
-
   }
 
 }

@@ -24,43 +24,45 @@ export default function Page(props) {
           window.open('https://hioslab.com')
         }}
         className='fixed top-0 right-0 z-20 bg-white text-main text-center text-md w-fit'>
-        <span className='pl-2 pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-main md:hover:text-white active:bg-main active:text-white'>
+        <span className='pl-2 text-md md:text-lg pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-main md:hover:text-white active:bg-main active:text-white'>
           <AiOutlineHome /> hisoslab.com
         </span>
       </button>
-      <div className='fixed top-6 left-1/2 -translate-x-1/2 z-20 flex flex-col gap-2 text-white text-center w-full p-4'>
+      <div className='fixed top-6 left-1/2 -translate-x-1/2 z-20 flex flex-col justify-center items-center gap-2 text-white text-center w-full p-4'>
         <Image src='/img/poster_title.svg' alt='logo' width={1080} height={1080} />
       </div>
-      <div className='fixed bottom-0 left-0 -rotate-90 text-white origin-top-left z-10 w-fit h-fit pointer-events-none'>
-        2024.03.11 - 2024.03.15
+      <div className='fixed bottom-0  text-white rotate-90 origin-bottom-right  -left-[100svh]	z-20 w-[100svh] h-fit flex justify-center '>
+        <span className='ml-10 md:ml-0 px-2 leading-snug text-lg md:text-2xl '>2024.03.11 - 2024.03.15</span>
       </div>
-
-      <button
-        onClick={() => {
-          alert('지원 기간이 아닙니다.')
-        }}
-        className='fixed bottom-20 py-1 px-2 left-1/2 -translate-x-1/2 z-10 border border-white bg-main text-white text-center text-md w-fit md:hover:bg-white md:hover:text-main active:bg-white active:text-main'>
-        <span className='pl-2 pr-1.5 flex flex-row justify-center items-center gap-1 '>☁ 2024-1 지원하기</span>
-      </button>
 
       <div
         onClick={() => {
           setIsInfoOpened(!isInfoOpened)
         }}
         className={
-          'fixed bottom-0 left-0 z-20  text-main text-center text-md w-full h-fit flex flex-col justify-start items-center'
+          'fixed bottom-0 left-0 z-20  text-main text-center text-md w-full h-fit flex flex-col justify-start items-center cursor-pointer'
         }>
+        <button
+          onClick={() => {
+            alert('지원 기간이 아닙니다.')
+          }}
+          className='mb-6 relative w-48 md:w-72'>
+          <span className='border border-white bg-main text-white text-center  w-full md:hover:bg-white md:hover:text-main active:bg-white active:text-main px-3 py-1.5 flex flex-row justify-center items-center gap-1 text-md md:text-lg active:translate-y-1 md:hover:translate-y-1 '>
+            ☁ 2024-1 지원하기
+          </span>
+          <div className='absolute -bottom-1 left-0 w-full h-1 border border-white bg-white' />
+        </button>
         <div
-          className='w-fit px-4 py-1 flex flex-row gap-2 justify-center items-center gap-1 
-        bg-white text-main text-center text-md w-fit
-        md:hover:text-white  active:text-white md:hover:bg-main active:bg-main '>
+          className='w-48 md:w-72 px-4 py-1.5 flex flex-row gap-2 justify-center items-center gap-1 
+        bg-white text-main text-center w-fit text-md md:text-lg md:hover:text-white  active:text-white md:hover:bg-main active:bg-main border border-white '>
           <span className='-ml-1'>{isInfoOpened ? <AiOutlineDown /> : <AiOutlineUp />}</span>
           <p>{!isInfoOpened ? '모집 관련 설명 보기' : '내리기'}</p>
         </div>
         <motion.div
+          className='w-full md:w-1/2 overflow-hidden'
           animate={isInfoOpened ? { height: 'fit-content' } : { height: 0 }}
           transition={{ ease: 'easeInOut', duration: 1 }}>
-          <div className='p-4 flex flex-col gap-4 w-full h-full overflow-y-scroll bg-white'>
+          <div className='p-4 flex flex-col gap-4 w-full h-full overflow-y-scroll bg-white text-md md:text-lg'>
             <InfoContainer
               title='활동내용'
               content='다양한 미디어를 활용한 인터랙티브 미디어 아트 정보 교류, 스터디 및 전시'
