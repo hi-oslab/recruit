@@ -1,4 +1,3 @@
-import { Foot, Model } from '@/components/canvas/Model/foot'
 import Scene, { Common } from '@/components/canvas/Scene'
 import { OrbitControls, Box, Sphere, Stage, Float } from '@react-three/drei'
 import { useRouter } from 'next/router'
@@ -16,6 +15,7 @@ import { Leg } from '@/components/canvas/Model/leg'
 import { Neck } from '@/components/canvas/Model/neck'
 import { Wheel } from '@/components/canvas/Model/wheel'
 import { Curves } from '@/components/canvas/Model/curves'
+import { Foot } from '@/components/canvas/Model/foot'
 
 export default function Page(props) {
   const router = useRouter()
