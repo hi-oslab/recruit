@@ -99,7 +99,7 @@ export default function Page(props) {
         <Scene>
           {/* <Perf position='bottom-right' /> */}
           <ambientLight intensity={0.5} />
-          <directionalLight position={[0, 0, 5]} intensity={0.7} />
+          {/* <directionalLight position={[0, 0, 5]} intensity={0.7} /> */}
           <Environment files={'/img/meadow_2_1k.hdr'} />
           {/* 
           //@ts-ignore */}
