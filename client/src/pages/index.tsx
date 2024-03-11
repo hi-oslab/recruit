@@ -46,9 +46,6 @@ export default function Page(props) {
       </div>
 
       <div
-        onClick={() => {
-          setIsInfoOpened(!isInfoOpened)
-        }}
         className={
           'fixed bottom-0 left-0 z-20  text-main text-center text-md w-full h-fit flex flex-col justify-start items-center cursor-pointer'
         }>
@@ -70,13 +67,16 @@ export default function Page(props) {
           <div className='absolute -bottom-1 left-0 w-full h-1 border border-white bg-white' />
         </button>
         <div
+          onClick={() => {
+            setIsInfoOpened(!isInfoOpened)
+          }}
           className='w-48 md:w-72 px-4 py-1.5 flex flex-row gap-2 justify-center items-center gap-1 
         bg-white text-main text-center w-fit text-md md:text-lg md:hover:text-white  active:text-white md:hover:bg-main active:bg-main border border-white '>
           <span className='-ml-1'>{isInfoOpened ? <AiOutlineDown /> : <AiOutlineUp />}</span>
           <p>{!isInfoOpened ? '모집 관련 설명 보기' : '내리기'}</p>
         </div>
         <motion.div
-          className='w-full md:w-1/2 overflow-hidden'
+          className='w-full md:w-1/2 h-0 overflow-hidden'
           animate={isInfoOpened ? { height: 'fit-content' } : { height: 0 }}
           transition={{ ease: 'easeInOut', duration: 1 }}>
           <div className='p-4 flex flex-col gap-4 w-full h-full overflow-y-scroll bg-white text-md md:text-lg'>
