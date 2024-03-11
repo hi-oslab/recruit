@@ -28,7 +28,9 @@ export function Leg(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null}>
       <group position={[-0.395, 0.259, 0.262]} rotation={[-1.039, 0.038, -0.159]} scale={0.41}>
         <mesh castShadow receiveShadow geometry={nodes.Sphere002.geometry} material={materials['Car Paint 8']} />
-        <mesh castShadow receiveShadow geometry={nodes.Sphere002_1.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Sphere002_1.geometry} material={materials['Material.011']}>
+          <meshStandardMaterial attach='material' color='#D3E3DC' metalness={0.5} roughness={0.1} />
+        </mesh>
         <mesh castShadow receiveShadow geometry={nodes.Sphere002_2.geometry} material={materials['Car Paint 2']} />
         <mesh castShadow receiveShadow geometry={nodes.Sphere002_3.geometry} material={materials['Brushed Metal']} />
       </group>
