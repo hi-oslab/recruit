@@ -110,17 +110,17 @@ export default function Page(props) {
             rotationIntensity={0.3} // XYZ rotation intensity, defaults to 1
             floatIntensity={0.5} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
             floatingRange={[-1.5, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-          >
-            <Arm scale={0.5} />
-            <Chest scale={0.5} />
-            <Foot scale={0.5} />
-            <Hand scale={0.5} />
-            <Shoulder scale={0.5} />
-            <Head scale={0.5} />
-            <Leg scale={0.5} />
-            <Neck scale={0.5} />
-            <Wheel scale={0.5} />
-            <Curves scale={0.5} />
+            position={[0, -0.5, 0]}>
+            <Arm scale={0.3} />
+            <Chest scale={0.3} />
+            <Foot scale={0.3} />
+            <Hand scale={0.3} />
+            <Shoulder scale={0.3} />
+            <Head scale={0.3} />
+            <Leg scale={0.3} />
+            <Neck scale={0.3} />
+            <Wheel scale={0.3} />
+            <Curves scale={0.3} />
           </Float>
           <OrbitControls
             autoRotate={true}
