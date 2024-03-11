@@ -1,10 +1,11 @@
 import Scene, { Common } from '@/components/canvas/Scene'
 import { OrbitControls, Box, Sphere, Stage, Float, Environment } from '@react-three/drei'
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { use, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { AiOutlineDown, AiOutlineHome, AiOutlineUp } from 'react-icons/ai'
-import { motion } from 'framer-motion'
+import { MdOutlineTouchApp } from 'react-icons/md'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Arm } from '@/components/canvas/Model/arm'
 import { Chest } from '@/components/canvas/Model/chest'
 import { Hand } from '@/components/canvas/Model/hand'
@@ -24,8 +25,15 @@ export default function Page(props) {
 
   const [isHovered, setIsHovered] = useState(false)
   const [active, setActive] = useState(false)
+  const [isGuideOpened, setIsGuideOpened] = useState(true)
 
   const [isInfoOpened, setIsInfoOpened] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsGuideOpened(false)
+    }, 1500)
+  }, [])
 
   return (
     <>
@@ -44,7 +52,20 @@ export default function Page(props) {
       <div className='fixed bottom-0  text-white rotate-90 origin-bottom-right  -left-[100svh]	z-20 w-[100svh] h-fit flex justify-center '>
         <span className='ml-10 md:ml-0 px-2 leading-snug text-lg md:text-2xl '>2024.03.11 - 2024.03.15</span>
       </div>
-
+      <AnimatePresence>
+        {isGuideOpened && (
+          <motion.div
+            className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white text-main text-center text-md w-fit'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}>
+            <span className='pl-2 pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-main md:hover:text-white active:bg-main active:text-white'>
+              <MdOutlineTouchApp /> 3D 오브젝트를 돌려보세요!
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div
         className={
           'fixed bottom-0 left-0 z-20  text-main text-center text-md w-full h-fit flex flex-col justify-start items-center cursor-pointer'
