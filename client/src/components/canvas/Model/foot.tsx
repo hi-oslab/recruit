@@ -28,7 +28,7 @@ export function Foot(props: JSX.IntrinsicElements['group']) {
         position={[0.216, -0.134, 0.64]}
         rotation={[-2.605, 0.1, 0.171]}
         scale={[1.004, 1.004, 0.937]}>
-        <meshStandardMaterial attach='material' color='#ffffff' />
+        <meshStandardMaterial attach='material' color='#BBB' metalness={0.5} roughness={0.1} />
       </mesh>
     </group>
   )

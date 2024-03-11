@@ -1,5 +1,5 @@
 import Scene, { Common } from '@/components/canvas/Scene'
-import { OrbitControls, Box, Sphere, Stage, Float } from '@react-three/drei'
+import { OrbitControls, Box, Sphere, Stage, Float, Environment } from '@react-three/drei'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
@@ -100,9 +100,7 @@ export default function Page(props) {
           {/* <Perf position='bottom-right' /> */}
           <ambientLight intensity={1} />
           <directionalLight position={[0, 0, 5]} intensity={0.7} />
-          <spotLight position={[50, 50, -30]} castShadow />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
+          <Environment files={'/img/meadow_2_1k.hdr'} />
           {/* 
           //@ts-ignore */}
           <Float
