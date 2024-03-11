@@ -113,7 +113,7 @@ export default function Page(props) {
           >
             <Arm scale={0.5} />
             <Chest scale={0.5} />
-            {/* <Foot scale={0.5} /> */}
+            <Foot scale={0.5} />
             <Hand scale={0.5} />
             <Shoulder scale={0.5} />
             <Head scale={0.5} />
