@@ -119,6 +119,8 @@ export default function Page(props) {
       <div className='fixed z-0 w-full h-screen pointer-events-none '>
         <Scene>
           {/* <Perf position='bottom-right' /> */}
+          {/* 
+          //@ts-ignore */}
           <ambientLight />
           <Environment files={'/img/meadow_2_1k.hdr'} />
           {/* 
