@@ -12,7 +12,7 @@ type GLTFResult = GLTF & {
     HAND: THREE.Mesh
   }
   materials: {
-    ['Car Paint 9']: THREE.MeshPhysicalMaterial
+    ['Car Paint 9']: THREE.MeshStandardMaterial
   }
 }
 

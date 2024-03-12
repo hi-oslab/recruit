@@ -9,12 +9,14 @@ import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube006: THREE.Mesh
-    Cube006_1: THREE.Mesh
+    BezierCurve: THREE.Mesh
+    BezierCurve_1: THREE.Mesh
+    BezierCurve_2: THREE.Mesh
   }
   materials: {
-    ['Material.013']: THREE.MeshStandardMaterial
     ['Material.008']: THREE.MeshStandardMaterial
+    ['Brushed Metal']: THREE.MeshStandardMaterial
+    ['Material.013']: THREE.MeshStandardMaterial
   }
 }
 
@@ -22,9 +24,10 @@ export function Arm(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/glb/arm.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <group position={[-2.843, -1.152, -0.002]} rotation={[0.049, 1.025, 0.794]} scale={1.004}>
-        <mesh castShadow receiveShadow geometry={nodes.Cube006.geometry} material={materials['Material.013']} />
-        <mesh castShadow receiveShadow geometry={nodes.Cube006_1.geometry} material={materials['Material.008']} />
+      <group position={[2.559, 1.88, -0.46]} rotation={[-0.227, 0, 0]} scale={1.004}>
+        <mesh castShadow receiveShadow geometry={nodes.BezierCurve.geometry} material={materials['Material.008']} />
+        <mesh castShadow receiveShadow geometry={nodes.BezierCurve_1.geometry} material={materials['Brushed Metal']} />
+        <mesh castShadow receiveShadow geometry={nodes.BezierCurve_2.geometry} material={materials['Material.013']} />
       </group>
     </group>
   )

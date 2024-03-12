@@ -9,16 +9,16 @@ import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Sphere002: THREE.Mesh
-    Sphere002_1: THREE.Mesh
-    Sphere002_2: THREE.Mesh
-    Sphere002_3: THREE.Mesh
+    Cube004: THREE.Mesh
+    Cube004_1: THREE.Mesh
+    Cube004_2: THREE.Mesh
+    Cube004_3: THREE.Mesh
   }
   materials: {
-    ['Car Paint 8']: THREE.MeshPhysicalMaterial
-    ['Material.011']: THREE.MeshStandardMaterial
-    ['Car Paint 2']: THREE.MeshPhysicalMaterial
     ['Brushed Metal']: THREE.MeshStandardMaterial
+    ['Car Paint 2']: THREE.MeshStandardMaterial
+    ['Material.011']: THREE.MeshStandardMaterial
+    ['Car Paint 8']: THREE.MeshStandardMaterial
   }
 }
 
@@ -26,13 +26,11 @@ export function Leg(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/glb/leg.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <group position={[-0.395, 0.259, 0.262]} rotation={[-1.039, 0.038, -0.159]} scale={0.41}>
-        <mesh castShadow receiveShadow geometry={nodes.Sphere002.geometry} material={materials['Car Paint 8']} />
-        <mesh castShadow receiveShadow geometry={nodes.Sphere002_1.geometry} material={materials['Material.011']}>
-          <meshStandardMaterial attach='material' color='#D3E3DC' metalness={0.5} roughness={0.1} />
-        </mesh>
-        <mesh castShadow receiveShadow geometry={nodes.Sphere002_2.geometry} material={materials['Car Paint 2']} />
-        <mesh castShadow receiveShadow geometry={nodes.Sphere002_3.geometry} material={materials['Brushed Metal']} />
+      <group position={[0, 1.529, -0.329]} rotation={[-0.227, 0, 0]} scale={1.004}>
+        <mesh castShadow receiveShadow geometry={nodes.Cube004.geometry} material={materials['Brushed Metal']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube004_1.geometry} material={materials['Car Paint 2']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube004_2.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube004_3.geometry} material={materials['Car Paint 8']} />
       </group>
     </group>
   )

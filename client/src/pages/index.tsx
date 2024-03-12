@@ -10,13 +10,13 @@ import { Arm } from '@/components/canvas/Model/arm'
 import { Chest } from '@/components/canvas/Model/chest'
 import { Hand } from '@/components/canvas/Model/hand'
 import { Perf } from 'r3f-perf'
-import { Shoulder } from '@/components/canvas/Model/shoulder'
 import { Head } from '@/components/canvas/Model/head'
 import { Leg } from '@/components/canvas/Model/leg'
 import { Neck } from '@/components/canvas/Model/neck'
 import { Wheel } from '@/components/canvas/Model/wheel'
-import { Curves } from '@/components/canvas/Model/curves'
+import { Polls } from '@/components/canvas/Model/polls'
 import { Foot } from '@/components/canvas/Model/foot'
+import { Osl } from '@/components/canvas/Model/osl'
 
 export default function Page(props) {
   const router = useRouter()
@@ -119,27 +119,26 @@ export default function Page(props) {
       <div className='fixed z-0 w-full h-screen pointer-events-none '>
         <Scene>
           {/* <Perf position='bottom-right' /> */}
-          <ambientLight intensity={0.5} />
-          {/* <directionalLight position={[0, 0, 5]} intensity={0.7} /> */}
+          <ambientLight />
           <Environment files={'/img/meadow_2_1k.hdr'} />
           {/* 
           //@ts-ignore */}
           <Float
             speed={2} // Animation speed, defaults to 1
-            rotationIntensity={0.3} // XYZ rotation intensity, defaults to 1
+            rotationIntensity={0} // XYZ rotation intensity, defaults to 1
             floatIntensity={0.5} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
             floatingRange={[-1.0, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-            position={[0, -0.5, 0]}>
+            position={[0, -0.3, 0]}>
             <Arm scale={0.3} />
             <Chest scale={0.3} />
             <Foot scale={0.3} />
             <Hand scale={0.3} />
-            <Shoulder scale={0.3} />
             <Head scale={0.3} />
             <Leg scale={0.3} />
             <Neck scale={0.3} />
             <Wheel scale={0.3} />
-            <Curves scale={0.3} />
+            <Polls scale={0.3} />
+            <Osl scale={0.3} />
           </Float>
           <OrbitControls
             autoRotate={true}

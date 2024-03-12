@@ -13,8 +13,8 @@ type GLTFResult = GLTF & {
     Cylinder003_1: THREE.Mesh
   }
   materials: {
-    ['Material.002']: THREE.MeshPhysicalMaterial
-    ['Car Paint 9']: THREE.MeshPhysicalMaterial
+    ['Material.002']: THREE.MeshStandardMaterial
+    ['Car Paint 9']: THREE.MeshStandardMaterial
   }
 }
 

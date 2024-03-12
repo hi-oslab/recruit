@@ -9,10 +9,10 @@ import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube011: THREE.Mesh
-    Cube011_1: THREE.Mesh
-    Cube011_2: THREE.Mesh
-    Cube011_3: THREE.Mesh
+    Cube003: THREE.Mesh
+    Cube003_1: THREE.Mesh
+    Cube003_2: THREE.Mesh
+    Cube003_3: THREE.Mesh
   }
   materials: {
     ['Material.004']: THREE.MeshStandardMaterial
@@ -26,11 +26,11 @@ export function Neck(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/glb/neck.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 1.72, -0.639]} rotation={[-0.227, 0, 0]} scale={[0.114, 0.045, 0.18]}>
-        <mesh castShadow receiveShadow geometry={nodes.Cube011.geometry} material={materials['Material.004']} />
-        <mesh castShadow receiveShadow geometry={nodes.Cube011_1.geometry} material={materials['Material.012']} />
-        <mesh castShadow receiveShadow geometry={nodes.Cube011_2.geometry} material={materials['Material.010']} />
-        <mesh castShadow receiveShadow geometry={nodes.Cube011_3.geometry} material={materials['Brushed Metal']} />
+      <group position={[0, 3.328, -0.953]} rotation={[-0.114, 0, 0]} scale={[0.399, 0.269, 0.213]}>
+        <mesh castShadow receiveShadow geometry={nodes.Cube003.geometry} material={materials['Material.004']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube003_1.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube003_2.geometry} material={materials['Material.010']} />
+        <mesh castShadow receiveShadow geometry={nodes.Cube003_3.geometry} material={materials['Brushed Metal']} />
       </group>
     </group>
   )
