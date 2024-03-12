@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 /* 폰트 임포트 */
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-@font-face {
-  font-family: 'orbit';
-  src: url('/data/Orbitron-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 /* 커스텀 스타일 */
 
@@ -32,11 +23,12 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-image: url('/img/bg-image.png');
-    background-repeat: no-repeat;
+    /* background-image: url('/img/background.jpeg');
     background-size: cover;
-    font-family: 'Nanum Gothic',
+    background-repeat: no-repeat; */
+    font-family: "Galmuri9",
       sans-serif;
+    color: blue;
   }
 
 }

@@ -17,6 +17,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "framer": "^2.2.0",
     "framer-motion": "^7.6.5",
+    "galmuri": "^2.39.4",
     "gh-pages": "^5.0.0",
     "glsl-random": "^0.0.5",
     "lamina": "^1.1.23",

@@ -1,22 +1,8 @@
 import Scene, { Common } from '@/components/canvas/Scene'
 import { OrbitControls, Box, Sphere, Stage, Float, Environment } from '@react-three/drei'
 import { useRouter } from 'next/router'
-import { use, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { AiOutlineDown, AiOutlineHome, AiOutlineUp } from 'react-icons/ai'
-import { MdOutlineTouchApp } from 'react-icons/md'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Arm } from '@/components/canvas/Model/arm'
-import { Chest } from '@/components/canvas/Model/chest'
-import { Hand } from '@/components/canvas/Model/hand'
-import { Perf } from 'r3f-perf'
-import { Head } from '@/components/canvas/Model/head'
-import { Leg } from '@/components/canvas/Model/leg'
-import { Neck } from '@/components/canvas/Model/neck'
-import { Wheel } from '@/components/canvas/Model/wheel'
-import { Polls } from '@/components/canvas/Model/polls'
-import { Foot } from '@/components/canvas/Model/foot'
-import { Osl } from '@/components/canvas/Model/osl'
 
 export default function Page(props) {
   const router = useRouter()
@@ -41,87 +27,53 @@ export default function Page(props) {
         onClick={() => {
           window.open('https://hioslab.com')
         }}
-        className='fixed top-0 right-0 z-20 bg-white text-main text-center text-md w-fit'>
-        <span className='pl-2 text-md md:text-lg pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-main md:hover:text-white active:bg-main active:text-white'>
-          <AiOutlineHome /> hisoslab.com
+        className='fixed top-0 right-0 z-20 bg-main text-white text-center text-md w-fit'>
+        <span className='pl-2 text-md md:text-lg pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-white md:hover:text-main active:bg-white active:text-main'>
+          hisoslab.com
         </span>
       </button>
-      <div className='fixed top-6 left-1/2 -translate-x-1/2 z-20 flex flex-col justify-center items-center gap-2 text-white text-center w-full p-4'>
-        <Image src='/img/poster_title.svg' alt='logo' width={1080} height={1080} />
+      <div className='fixed z-0 top-0 left-0 w-full h-screen flex flex-col justify-center items-center'>
+        <Image src='/img/background.jpeg' width={2380} height={3368} alt='background' className='h-full' />
       </div>
-      <div className='fixed bottom-0  text-white rotate-90 origin-bottom-right  -left-[100svh]	z-20 w-[100svh] h-fit flex justify-center '>
-        <span className='ml-10 md:ml-0 px-2 leading-snug text-lg md:text-2xl '>2024.03.11 - 2024.03.15</span>
+      <div className='fixed z-20 top-0 left-0 w-screen h-full flex flex-col justify-start items-center'>
+        <Image
+          src='/img/leftSide.png'
+          width={2380}
+          height={3368}
+          alt='background'
+          className='w-full transform origin-top-left scale-125'
+        />
       </div>
-      <AnimatePresence>
-        {isGuideOpened && (
-          <motion.div
-            className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white text-main text-center text-md w-fit'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}>
-            <span className='pl-2 pr-1.5 flex flex-row justify-center items-center gap-1 md:hover:bg-main md:hover:text-white active:bg-main active:text-white'>
-              <MdOutlineTouchApp /> 3D 오브젝트를 돌려보세요!
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div
-        className={
-          'fixed bottom-0 left-0 z-20  text-main text-center text-md w-full h-fit flex flex-col justify-start items-center cursor-pointer'
-        }>
-        <button
-          onClick={() => {
-            //after 2024.03.11
-            if (new Date().getTime() < new Date('2024-03-11').getTime()) {
-              alert('지원 기간이 아닙니다.\n 2024년 3월 11일부터 지원해주세요!')
-            } else {
+      <div className='fixed z-20 bottom-0 right-0 w-screen h-full flex flex-col justify-end items-center'>
+        <Image
+          src='/img/rightSide.png'
+          width={2380}
+          height={3368}
+          alt='background'
+          className='w-full transform origin-bottom-right scale-125'
+        />
+        <div className='absolute bottom-[3%] right-[5%] w-fit h-fit flex flex-col justify-end items-end space-y-1'>
+          <button
+            onClick={() => {
               window.open(
-                'https://docs.google.com/forms/d/e/1FAIpQLSfLK2_O67UjSOlHz2kcY0C_W6SQToX28olenrphty55Bb2qLw/viewform?usp=sf_link',
+                'https://docs.google.com/forms/d/e/1FAIpQLSdM5kV516wlmzSEtgWW1MwGuhv79R5beBnm36pdBR9ZnVOI7g/viewform',
               )
-            }
-          }}
-          className='mb-6 relative w-48 md:w-72'>
-          <span className='border border-white bg-main text-white text-center  w-full md:hover:bg-white md:hover:text-main active:bg-white active:text-main px-3 py-1.5 flex flex-row justify-center items-center gap-1 text-md md:text-lg active:translate-y-1 md:hover:translate-y-1 '>
-            ☁ 2024-1 지원하기
-          </span>
-          <div className='absolute -bottom-1 left-0 w-full h-1 border border-white bg-white' />
-        </button>
-        <div
-          onClick={() => {
-            setIsInfoOpened(!isInfoOpened)
-          }}
-          className='w-48 md:w-72 px-4 py-1.5 flex flex-row gap-2 justify-center items-center gap-1 
-        bg-white text-main text-center w-fit text-md md:text-lg md:hover:text-white  active:text-white md:hover:bg-main active:bg-main border border-white '>
-          <span className='-ml-1'>{isInfoOpened ? <AiOutlineDown /> : <AiOutlineUp />}</span>
-          <p>{!isInfoOpened ? '모집 관련 설명 보기' : '내리기'}</p>
+            }}
+            className='bg-[#000AAF] px-2 py-1 text-white text-[2.5vw] active:bg-white active:text-[#000AAF] transform transition-all animate-pulse  '>
+            지원 구글 폼 바로가기
+          </button>
+          <Image src='/img/qr.png' width={50} height={50} alt='qrcode' className='w-[40%]' />
         </div>
-        <motion.div
-          className='w-full md:w-1/2 h-0 overflow-hidden'
-          animate={isInfoOpened ? { height: 'fit-content' } : { height: 0 }}
-          transition={{ ease: 'easeInOut', duration: 1 }}>
-          <div className='p-4 flex flex-col gap-4 w-full h-full overflow-y-scroll bg-white text-md md:text-lg'>
-            <InfoContainer
-              title='활동내용'
-              content='다양한 미디어를 활용한 인터랙티브 미디어 아트 정보 교류, 스터디 및 전시'
-            />
-            <InfoContainer
-              title='모집대상'
-              content='인터랙션을 활용한 디지털 미디어아트에 관심이 많은 재학생 및 휴학생'
-            />
-            <InfoContainer title='지원기간' content='2024.03.11~ 2024.03.15' />
-            <InfoContainer title='지원방법' content='구글 폼 작성 및 포트폴리오 제출 면접 별도 연락 예정' />
-            <ContactContainer phone='010-6485-8758' email='hi.oslab@gmail.com' instagram='opensource_lab' />
-          </div>
-        </motion.div>
       </div>
-
-      <div className='fixed z-0 w-full h-screen pointer-events-none '>
+      <div className='fixed z-20 top-[2%] px-[8%] left-0 w-fit h-fit  justify-center items-center'>
+        <Image src='/img/title.png' width={975} height={469} alt='logo' className='' />
+      </div>
+      <div className='fixed z-10 w-full h-screen pointer-events-none '>
         <Scene>
           {/* <Perf position='bottom-right' /> */}
           {/* 
           //@ts-ignore */}
-          <ambientLight />
+          <pointLight position={[0, 1, 0]} intensity={0.5} />
           <Environment files={'/img/meadow_2_1k.hdr'} />
           {/* 
           //@ts-ignore */}
@@ -130,18 +82,7 @@ export default function Page(props) {
             rotationIntensity={0} // XYZ rotation intensity, defaults to 1
             floatIntensity={0.5} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
             floatingRange={[-1.0, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-            position={[0, -0.3, 0]}>
-            <Arm scale={0.3} />
-            <Chest scale={0.3} />
-            <Foot scale={0.3} />
-            <Hand scale={0.3} />
-            <Head scale={0.3} />
-            <Leg scale={0.3} />
-            <Neck scale={0.3} />
-            <Wheel scale={0.3} />
-            <Polls scale={0.3} />
-            <Osl scale={0.3} />
-          </Float>
+            position={[0, -0.3, 0]}></Float>
           <OrbitControls
             autoRotate={true}
             autoRotateSpeed={1}
@@ -160,39 +101,6 @@ export default function Page(props) {
         </Scene>
       </div>
     </>
-  )
-}
-
-function InfoContainer({ title, content }) {
-  return (
-    <div className='flex flex-col gap-1 justify-start items-start text-left break-keep'>
-      <span className='font-bold'>☻ {title}</span>
-      <p className=''> {content}</p>
-    </div>
-  )
-}
-function ContactContainer({ phone, email, instagram }) {
-  return (
-    <div className='my-2 flex flex-col gap-2'>
-      <a
-        href={`tel:${phone}`}
-        className='flex flex-row items-center justify-start text-left gap-2 break-keep md:hover:text-white md:hover:bg-main active:bg-main active:text-white'>
-        <span className='font-bold'>전화번호</span>
-        <p className='underline'> {phone}</p>
-      </a>
-      <a
-        href={`mailto:${email}`}
-        className='flex flex-row items-center justify-start text-left gap-2 break-keep md:hover:text-white md:hover:bg-main active:bg-main active:text-white'>
-        <span className='font-bold'>이메일</span>
-        <p className='underline'> {email}</p>
-      </a>
-      <a
-        href={`https://www.instagram.com/${instagram}`}
-        className='flex flex-row items-center justify-start text-left gap-2 break-keep md:hover:text-white md:hover:bg-main active:bg-main active:text-white'>
-        <span className='font-bold'>인스타그램</span>
-        <p className='underline'>@{instagram}</p>
-      </a>
-    </div>
   )
 }
 

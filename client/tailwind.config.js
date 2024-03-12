@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: '#0F74A8',
+        main: '#000AAF',
       },
       fontFamily: {
         orbit: ['Orbit', 'sans-serif'],
