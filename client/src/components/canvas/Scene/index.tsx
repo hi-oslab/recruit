@@ -25,9 +25,19 @@ export const Common = ({ color }) => (
 
 const Scene = ({ children, ...props }) => {
   const canvasRef = useRef()
+
   return (
     <>
-      <Canvas {...props} ref={canvasRef} {...props} shadows dpr={[1, 2]} camera={{ fov: 70 }}>
+      <Canvas
+        {...props}
+        ref={canvasRef}
+        {...props}
+        shadows
+        dpr={[1, 2]}
+        camera={{
+          fov: 15,
+          position: [0, 0, 20],
+        }}>
         <Suspense fallback={<Loader />}>
           {children}
           <Preload all />

@@ -30,6 +30,24 @@ module.exports = {
         '4xl': '2.441rem',
         '5xl': '3.052rem',
       },
+      boxShadow: {
+        btnsh: '0px 4px 0px 0px #000AAF',
+      },
+      animation: {
+        pushing: 'pushing 1s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        pushing: {
+          '0%': {
+            transform: 'translateY(0)',
+            boxShadow: '0px 4px 0px 0px #000AAF',
+          },
+          '100%': {
+            transform: 'translateY(4px)',
+            boxShadow: '0px 0px 0px 0px #000AAF',
+          },
+        },
+      },
     },
   },
   variants: {
